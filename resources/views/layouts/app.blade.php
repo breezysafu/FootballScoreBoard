@@ -48,10 +48,15 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
-                                <a id="navbarDropdown" class="nav-link" href="{{ route('control.index') }}" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <span class="caret">Control</span>
                                 </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('control.index') }}">Add Team</a>
+                                    <a class="dropdown-item" href="{{ route('control.manage') }}">Add Score</a>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <a id="navbarDropdown" class="nav-link" href="{{ route('ScoreCard.index') }}" role="button" aria-haspopup="true" aria-expanded="false" v-pre>

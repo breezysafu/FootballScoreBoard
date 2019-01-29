@@ -21,8 +21,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home/control', 'ControlController@index')->name('control.index');
+Route::get('/home/control/addteam', 'ControlController@index')->name('control.index');
 
-Route::post('/home/control', 'ControlController@store')->name('control.store');
+Route::post('/home/control/addteam', 'ControlController@store')->name('control.store');
+
+Route::get('/home/control/addscore', 'ControlController@manage')->name('control.manage');
+
+Route::post('/home/control/addscore', 'ControlController@update')->name('control.update');
 
 Route::get('/home/scorecard', 'ScoreCardController@index')->name('ScoreCard.index');

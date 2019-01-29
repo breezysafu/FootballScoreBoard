@@ -24,14 +24,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="team_a_score">Team A Score</label>
-                                <input type="number" name="team_a_score" id="team_a_score" class="form-control">
+                                <input type="number" name="team_a_score" id="team_a_score" class="form-control" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="team_b_score">Team B Score</label>
-                                <input type="number" name="team_b_score" id="team_b_score" class="form-control">
+                                <input type="number" name="team_b_score" id="team_b_score" class="form-control" value="0">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-outline-info">Update</button>
+                                <button type="submit" class="btn btn-outline-info">Add</button>
                             </div>
                         </form>
                     </div>

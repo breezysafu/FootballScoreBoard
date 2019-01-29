@@ -14,7 +14,7 @@ class ControlController extends Controller
      */
     public function index()
     {
-        return view('layouts.control');
+        return view('layouts.Control.addteam');
     }
 
     /**
@@ -33,6 +33,11 @@ class ControlController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function manage(){
+        $control = Control::orderBy('created_at', 'desc')->first();
+        return view ('layouts.Control.addscore')->with('control',$control);
+    }
+
     public function store(Request $request)
     {
         $control= new Control();
@@ -43,7 +48,7 @@ class ControlController extends Controller
             'team_a_score' => $request->team_a_score,
             'team_b_score' => $request->team_b_score,
         ]);
-        return redirect(route('control.index'))->with('message','Team and Score Updated Succesfully');
+        return redirect(route('control.index'))->with('message','Team Added Succesfully');
     }
 
     /**
@@ -75,9 +80,18 @@ class ControlController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id=null)
     {
-        //
+        $control=Control::findOrFail($request->id);
+
+        $control->update([
+            'team_a_name'=>$request->team_a_name,
+            'team_b_name'=>$request->team_b_name,
+            'team_a_score'=>$request->team_a_score,
+            'team_b_score'=>$request->team_b_score
+            ]);
+        return redirect(route('control.manage'))->with('message','Score Updated Successfully');
+
     }
 
     /**

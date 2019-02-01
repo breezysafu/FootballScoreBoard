@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Control;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class ScoreCardController extends Controller
 {
@@ -14,8 +15,8 @@ class ScoreCardController extends Controller
      */
     public function index()
     {
-        $control = Control::orderBy('created_at', 'desc')->first();
-        return view ('layouts.scorecard')->with('control',$control);
+        $control = Control::orderBy('created_at', 'desc')->first();;
+        return view ('layouts.scorecard');
     }
 
     /**
@@ -37,6 +38,11 @@ class ScoreCardController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function newscore(Request $request){
+        $control = Control::orderBy('created_at', 'desc')->first();
+        return Response::json($control);
     }
 
     /**

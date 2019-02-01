@@ -30,3 +30,5 @@ Route::get('/home/control/addscore', 'ControlController@manage')->name('control.
 Route::post('/home/control/addscore', 'ControlController@update')->name('control.update');
 
 Route::get('/home/scorecard', 'ScoreCardController@index')->name('ScoreCard.index');
+
+Route::get('/home/scoreupdate', 'ScoreCardController@newscore')->name('new.score');

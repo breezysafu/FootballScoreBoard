@@ -21,7 +21,8 @@
                         success:
                             function(data){
                               //  console.log();
-                                $('#time').html(data.created_at);
+
+                              //  $('#time').html(data.created_at);
                                 $('#aname').html(data.team_a_name);
                                 $('#bname').html(data.team_b_name);
                                 $('#ascore').html(data.team_a_score);
@@ -32,7 +33,7 @@
 </script>
 <div class="image1"></div>
 <div class="mainBox">
-    <p>Started At: <br/><p id="time"> </p></p>
+    <p>Started At: <br/>{{$control->created_at->format('g:i a')}}</p>
 
     <p class="teamA"><span class="increase2" id="aname"></span> <br/><br/><br/>
         <span class="increase1" id="ascore"></span></p>
@@ -47,10 +48,9 @@
 
         <script>
             // Set the date we're counting down to
-            var countDownDate = new Date();
+            var countDownDate = new Date('{{$control->created_at}}');
             countDownDate.setHours(countDownDate.getHours() + 1);
             countDownDate=countDownDate.getTime();
-           // console.log(countDownDate);
 
             // Update the count down every 1 second
             var x = setInterval(function() {

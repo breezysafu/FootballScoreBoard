@@ -16,7 +16,7 @@ class ScoreCardController extends Controller
     public function index()
     {
         $control = Control::orderBy('created_at', 'desc')->first();;
-        return view ('layouts.scorecard');
+        return view ('layouts.scorecard')->with('control',$control);
     }
 
     /**
